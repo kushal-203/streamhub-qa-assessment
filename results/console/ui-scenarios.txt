@@ -1,0 +1,27 @@
+
+=== results/ui/cucumber-report.json ===
+
+Feature: Portfolio dashboard
+  PASS  Dashboard loads with all summary tiles
+  PASS  Dashboard figures match an independent calculation of the portfolio data
+  PASS  Principal-by-type bar chart is visible and renders valid non-zero data
+
+Feature: EMI calculator
+  PASS  Calculated EMI matches an independently computed value – Home loan A
+  PASS  Calculated EMI matches an independently computed value – Home loan B
+  PASS  Calculated EMI matches an independently computed value – Personal loan
+  PASS  Calculated EMI matches an independently computed value – Small, short loan
+  PASS  Pie chart is visible and both sections contain values greater than zero
+  PASS  Values can be set with the sliders
+  PASS  Yearly bar chart shows one bar per year and its tooltip matches the schedule
+  PASS  Invalid input is rejected with a helpful message – zero amount
+  PASS  Invalid input is rejected with a helpful message – rate too high
+  PASS  Invalid input is rejected with a helpful message – fractional years
+
+Feature: Loan reports
+  PASS  Filtering by All / All shows only matching loans with correct totals
+  PASS  Filtering by Home / All shows only matching loans with correct totals
+  PASS  Filtering by Personal / Overdue shows only matching loans with correct totals
+  PASS  Filtering by Car / Active shows only matching loans with correct totals
+
+Total: 17 scenarios, 17 passed, 0 failed

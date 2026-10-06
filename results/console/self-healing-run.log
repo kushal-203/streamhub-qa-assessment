@@ -1,0 +1,21 @@
+
+> streamhub-qa-assessment@1.0.0 heal
+> node self-healing/heal.js
+
+
+Self-healing (heuristic): 5/5 broken locators healed & validated.
+ - calculateButton  HEALED (pending human review)
+     #calc-btn
+  -> page.getByRole('button', { name: 'Calculate EMI', exact: true })
+ - loanAmountInput  HEALED (pending human review)
+     xpath=/html/body/div[1]/main/section[2]/form/div[1]/input[1]
+  -> page.getByRole('spinbutton', { name: 'Loan amount (₹)', exact: true })
+ - emiResultValue   HEALED (pending human review)
+     .kpis > div:nth-child(1) > span.value
+  -> page.getByTestId('result-emi')
+ - pieChart         HEALED (pending human review)
+     [data-test="pie"]
+  -> page.getByRole('img', { name: 'EMI breakdown pie chart', exact: true })
+ - reportsNavLink   HEALED (pending human review)
+     nav > a:nth-of-type(4)
+  -> page.getByRole('link', { name: 'Reports', exact: true })

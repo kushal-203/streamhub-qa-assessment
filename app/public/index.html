@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LoanLens – EMI Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <span class="brand">LoanLens</span>
+    <nav aria-label="Main">
+      <a href="#/dashboard" data-route="dashboard">Dashboard</a>
+      <a href="#/calculator" data-route="calculator">EMI Calculator</a>
+      <a href="#/reports" data-route="reports">Reports</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ DASHBOARD ============ -->
+    <section id="view-dashboard" class="view" aria-labelledby="dash-title" hidden>
+      <h1 id="dash-title">Portfolio Dashboard</h1>
+      <div class="kpis" role="list" aria-label="Portfolio summary">
+        <div class="kpi" role="listitem" data-testid="kpi-loan-count"><span class="kpi-label">Loans</span><span class="kpi-value"></span></div>
+        <div class="kpi" role="listitem" data-testid="kpi-total-principal"><span class="kpi-label">Total principal</span><span class="kpi-value"></span></div>
+        <div class="kpi" role="listitem" data-testid="kpi-monthly-emi"><span class="kpi-label">Monthly EMI inflow</span><span class="kpi-value"></span></div>
+        <div class="kpi" role="listitem" data-testid="kpi-total-interest"><span class="kpi-label">Total interest receivable</span><span class="kpi-value"></span></div>
+      </div>
+      <h2>Principal by loan type</h2>
+      <div class="chart" id="type-chart"></div>
+    </section>
+
+    <!-- ============ CALCULATOR ============ -->
+    <section id="view-calculator" class="view" aria-labelledby="calc-title" hidden>
+      <h1 id="calc-title">EMI Calculator</h1>
+      <form id="emi-form" novalidate>
+        <div class="field">
+          <label for="loan-amount">Loan amount (₹)</label>
+          <input id="loan-amount" name="amount" type="number" min="10000" max="100000000" step="1000" value="2500000" required />
+          <input type="range" aria-label="Loan amount slider" min="10000" max="20000000" step="10000" value="2500000" data-sync="loan-amount" />
+        </div>
+        <div class="field">
+          <label for="interest-rate">Interest rate (% p.a.)</label>
+          <input id="interest-rate" name="rate" type="number" min="0.1" max="30" step="0.05" value="10" required />
+          <input type="range" aria-label="Interest rate slider" min="1" max="30" step="0.05" value="10" data-sync="interest-rate" />
+        </div>
+        <div class="field">
+          <label for="loan-tenure">Loan tenure (years)</label>
+          <input id="loan-tenure" name="tenure" type="number" min="1" max="30" step="1" value="10" required />
+          <input type="range" aria-label="Loan tenure slider" min="1" max="30" step="1" value="10" data-sync="loan-tenure" />
+        </div>
+        <button type="submit">Calculate EMI</button>
+        <p class="error" role="alert" id="form-error" hidden></p>
+      </form>
+
+      <div id="calc-results" hidden>
+        <div class="kpis" role="list" aria-label="EMI results">
+          <div class="kpi" role="listitem" data-testid="result-emi"><span class="kpi-label">Monthly EMI</span><span class="kpi-value"></span></div>
+          <div class="kpi" role="listitem" data-testid="result-total-interest"><span class="kpi-label">Total interest payable</span><span class="kpi-value"></span></div>
+          <div class="kpi" role="listitem" data-testid="result-total-payment"><span class="kpi-label">Total payment</span><span class="kpi-value"></span></div>
+        </div>
+        <div class="two-col">
+          <div>
+            <h2>Breakdown of total payment</h2>
+            <div class="chart" id="pie-chart"></div>
+          </div>
+          <div>
+            <h2>Yearly repayment schedule</h2>
+            <div class="chart" id="schedule-chart"></div>
+            <div class="tooltip" role="tooltip" id="chart-tooltip" hidden></div>
+          </div>
+        </div>
+        <h2>Amortisation table</h2>
+        <table aria-label="Yearly amortisation schedule">
+          <thead><tr><th scope="col">Year</th><th scope="col">Principal paid</th><th scope="col">Interest paid</th><th scope="col">Closing balance</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ REPORTS ============ -->
+    <section id="view-reports" class="view" aria-labelledby="rep-title" hidden>
+      <h1 id="rep-title">Loan Reports</h1>
+      <div class="filters">
+        <label>Loan type
+          <select id="filter-type" aria-label="Loan type">
+            <option value="">All</option><option>Home</option><option>Car</option><option>Personal</option>
+          </select>
+        </label>
+        <label>Status
+          <select id="filter-status" aria-label="Status">
+            <option value="">All</option><option>Active</option><option>Overdue</option><option>Closed</option>
+          </select>
+        </label>
+        <button type="button" id="apply-filters">Apply filters</button>
+      </div>
+      <p data-testid="report-count" aria-live="polite"></p>
+      <table class="report-table" aria-label="Loan report">
+        <thead><tr><th scope="col">Loan ID</th><th scope="col">Borrower</th><th scope="col">Type</th><th scope="col">Principal</th><th scope="col">Rate</th><th scope="col">Tenure</th><th scope="col">EMI</th><th scope="col">Status</th></tr></thead>
+        <tbody></tbody>
+        <tfoot><tr><th scope="row" colspan="3">Total</th><td data-testid="report-total-principal"></td><td></td><td></td><td data-testid="report-total-emi"></td><td></td></tr></tfoot>
+      </table>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

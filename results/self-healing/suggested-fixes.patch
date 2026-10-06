@@ -1,0 +1,24 @@
+--- a/src/pages/legacy/BrittleCalculatorPage.js  (calculateButton)
++++ b/src/pages/CalculatorPage.js (suggested)
+- page.locator("#calc-btn")
++ page.getByRole('button', { name: 'Calculate EMI', exact: true })
+
+--- a/src/pages/legacy/BrittleCalculatorPage.js  (loanAmountInput)
++++ b/src/pages/CalculatorPage.js (suggested)
+- page.locator("xpath=/html/body/div[1]/main/section[2]/form/div[1]/input[1]")
++ page.getByRole('spinbutton', { name: 'Loan amount (₹)', exact: true })
+
+--- a/src/pages/legacy/BrittleCalculatorPage.js  (emiResultValue)
++++ b/src/pages/CalculatorPage.js (suggested)
+- page.locator(".kpis > div:nth-child(1) > span.value")
++ page.getByTestId('result-emi')
+
+--- a/src/pages/legacy/BrittleCalculatorPage.js  (pieChart)
++++ b/src/pages/CalculatorPage.js (suggested)
+- page.locator("[data-test=\"pie\"]")
++ page.getByRole('img', { name: 'EMI breakdown pie chart', exact: true })
+
+--- a/src/pages/legacy/BrittleCalculatorPage.js  (reportsNavLink)
++++ b/src/pages/CalculatorPage.js (suggested)
+- page.locator("nav > a:nth-of-type(4)")
++ page.getByRole('link', { name: 'Reports', exact: true })

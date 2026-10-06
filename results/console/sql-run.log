@@ -1,0 +1,32 @@
+
+> streamhub-qa-assessment@1.0.0 sql
+> node --no-warnings sql/run-sql.js
+
+Scenario 1 – Round-trip transfers (within 10%, within 24h)
+
+original_txn | return_txn | account_a | account_b | amount_sent | amount_returned | pct_difference | sent_at             | returned_at         | hours_apart
+-------------+------------+-----------+-----------+-------------+-----------------+----------------+---------------------+---------------------+------------
+1            | 2          | A100      | B200      | 10000       | 10000           | 0              | 2024-05-01 09:00:00 | 2024-05-01 11:00:00 | 2          
+3            | 4          | C300      | D400      | 50000       | 45500           | -9             | 2024-05-02 08:00:00 | 2024-05-03 04:00:00 | 20         
+5            | 6          | E500      | F600      | 20000       | 22000           | 10             | 2024-05-04 10:00:00 | 2024-05-05 10:00:00 | 24         
+15           | 16         | D400      | E500      | 12000       | 12600           | 5              | 2024-05-31 22:30:00 | 2024-06-01 01:30:00 | 3          
+17           | 18         | A100      | F600      | 40000       | 39000           | -2.5           | 2024-06-02 09:00:00 | 2024-06-02 15:00:00 | 6          
+17           | 19         | A100      | F600      | 40000       | 41000           | 2.5            | 2024-06-02 09:00:00 | 2024-06-03 08:00:00 | 23         
+
+✔ 6 rows – matches the expected result designed into the seed data
+
+Scenario 2 – IPL 2024: 30+ runs in 3+ consecutive matches
+
+player_name     | streak_start_date | streak_end_date | matches_in_streak | scores         
+----------------+-------------------+-----------------+-------------------+----------------
+Faf du Plessis  | 2024-03-22        | 2024-04-02      | 4                 | 35, 33, 31, 30 
+Travis Head     | 2024-03-23        | 2024-03-31      | 3                 | 89, 102, 31    
+Abhishek Sharma | 2024-03-25        | 2024-04-05      | 3                 | 63, 37, 46     
+Virat Kohli     | 2024-03-25        | 2024-04-10      | 4                 | 83, 77, 41, 113
+Sanju Samson    | 2024-03-29        | 2024-04-14      | 4                 | 69, 71, 30, 30 
+Ruturaj Gaikwad | 2024-04-02        | 2024-04-14      | 3                 | 69, 98, 54     
+Shivam Dube     | 2024-04-02        | 2024-04-14      | 3                 | 45, 66, 39     
+
+✔ 7 rows – matches the expected result designed into the seed data
+
+Screenshots saved to C:\Users\KushalSonar\Documents\streamhub-qa-assessment\results\sql

@@ -1,0 +1,2074 @@
+[
+  {
+    "description": "  The API should answer invalid or extreme input with a clear client error (4xx)\n  or accept it safely – but it must NEVER fail with a server error (5xx).",
+    "elements": [
+      {
+        "description": "",
+        "id": "jsonplaceholder-–-post-/posts-boundary-and-invalid-data-handling;baseline-–-a-valid-post-is-created",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Baseline – a valid post is created",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 16380400
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 623144300
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I create a post with a valid payload",
+            "match": {
+              "location": "src\\steps\\api.steps.js:14"
+            },
+            "embeddings": [
+              {
+                "data": "UE9TVCAvcG9zdHMg4oaSIDIwMSBpbiA2MjEgbXMKUmVzcG9uc2U6IHsKICAidGl0bGUiOiAiU3RyZWFtaHViIFFBIGFzc2Vzc21lbnQiLAogICJib2R5IjogIkJvdW5kYXJ5ICYgaW52YWxpZCBkYXRhIGNoZWNrcyIsCiAgInVzZXJJZCI6IDEsCiAgImlkIjogMTAxCn0=",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 2399999
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "the response status should be 201",
+            "match": {
+              "location": "src\\steps\\api.steps.js:36"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1747399
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "the response should echo the submitted fields",
+            "match": {
+              "location": "src\\steps\\api.steps.js:49"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 761100
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "the response should contain a numeric \"id\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:53"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 2561400
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@posts",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "jsonplaceholder-–-post-/posts-boundary-and-invalid-data-handling;excessively-long-title-(256-characters)-does-not-cause-a-server-failure",
+        "keyword": "Scenario Outline",
+        "line": 21,
+        "name": "Excessively long title (256 characters) does not cause a server failure",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1600600
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 628317500
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "I create a post whose title is 256 characters long",
+            "match": {
+              "location": "src\\steps\\api.steps.js:18"
+            },
+            "embeddings": [
+              {
+                "data": "UE9TVCAvcG9zdHMg4oaSIDIwMSBpbiA2MjggbXMKUmVzcG9uc2U6IHsKICAidGl0bGUiOiAiQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQSIsCiAgImJvZHkiOiAiQm91bmRhcnkgJiBpbnZhbGlkIGRhdGEgY2hlY2tzIiwKICAidXNlcklkIjogMSwKICAiaWQiOiAxMDEKfQ==",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 632200
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "the API should not fail with a server error",
+            "match": {
+              "location": "src\\steps\\api.steps.js:45"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 570299
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "the response status should be one of \"201, 400, 413\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:40"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 408199
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "if the post was accepted the title should be stored without truncation",
+            "match": {
+              "location": "src\\steps\\api.steps.js:57"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 343100
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "the response should arrive within 10000 ms",
+            "match": {
+              "location": "src\\steps\\api.steps.js:67"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1094900
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@posts",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "jsonplaceholder-–-post-/posts-boundary-and-invalid-data-handling;excessively-long-title-(10000-characters)-does-not-cause-a-server-failure",
+        "keyword": "Scenario Outline",
+        "line": 22,
+        "name": "Excessively long title (10000 characters) does not cause a server failure",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1193099
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 530825600
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "I create a post whose title is 10000 characters long",
+            "match": {
+              "location": "src\\steps\\api.steps.js:18"
+            },
+            "embeddings": [
+              {
+                "data": "UE9TVCAvcG9zdHMg4oaSIDIwMSBpbiA1MzAgbXMKUmVzcG9uc2U6IHsKICAidGl0bGUiOiAiQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUHigKYgKDEwMDg5IGNoYXJzKQ==",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 397199
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "the API should not fail with a server error",
+            "match": {
+              "location": "src\\steps\\api.steps.js:45"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 308199
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "the response status should be one of \"201, 400, 413\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:40"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 260199
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "if the post was accepted the title should be stored without truncation",
+            "match": {
+              "location": "src\\steps\\api.steps.js:57"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 240099
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "the response should arrive within 10000 ms",
+            "match": {
+              "location": "src\\steps\\api.steps.js:67"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1169699
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@posts",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "jsonplaceholder-–-post-/posts-boundary-and-invalid-data-handling;excessively-long-title-(100000-characters)-does-not-cause-a-server-failure",
+        "keyword": "Scenario Outline",
+        "line": 23,
+        "name": "Excessively long title (100000 characters) does not cause a server failure",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1046400
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1087449300
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "I create a post whose title is 100000 characters long",
+            "match": {
+              "location": "src\\steps\\api.steps.js:18"
+            },
+            "embeddings": [
+              {
+                "data": "UE9TVCAvcG9zdHMg4oaSIDIwMSBpbiAxMDg2IG1zClJlc3BvbnNlOiB7CiAgInRpdGxlIjogIkFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB4oCmICgxMDAwODkgY2hhcnMp",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 352400
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "the API should not fail with a server error",
+            "match": {
+              "location": "src\\steps\\api.steps.js:45"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 336199
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "the response status should be one of \"201, 400, 413\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:40"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 224400
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "if the post was accepted the title should be stored without truncation",
+            "match": {
+              "location": "src\\steps\\api.steps.js:57"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 278900
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "the response should arrive within 10000 ms",
+            "match": {
+              "location": "src\\steps\\api.steps.js:67"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 940500
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@posts",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "jsonplaceholder-–-post-/posts-boundary-and-invalid-data-handling;excessively-long-title-(1000000-characters)-does-not-cause-a-server-failure",
+        "keyword": "Scenario Outline",
+        "line": 24,
+        "name": "Excessively long title (1000000 characters) does not cause a server failure",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 953800
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 7116927100
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "I create a post whose title is 1000000 characters long",
+            "match": {
+              "location": "src\\steps\\api.steps.js:18"
+            },
+            "embeddings": [
+              {
+                "data": "UE9TVCAvcG9zdHMg4oaSIDIwMSBpbiA3MTE0IG1zClJlc3BvbnNlOiB7CiAgInRpdGxlIjogIkFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB4oCmICgxMDAwMDg5IGNoYXJzKQ==",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 555599
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "the API should not fail with a server error",
+            "match": {
+              "location": "src\\steps\\api.steps.js:45"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 374399
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "the response status should be one of \"201, 400, 413\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:40"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 264300
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "if the post was accepted the title should be stored without truncation",
+            "match": {
+              "location": "src\\steps\\api.steps.js:57"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 301100
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "the response should arrive within 10000 ms",
+            "match": {
+              "location": "src\\steps\\api.steps.js:67"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1028000
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@posts",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "jsonplaceholder-–-post-/posts-boundary-and-invalid-data-handling;unsupported-/-special-characters-in-the-title-–-emoji",
+        "keyword": "Scenario Outline",
+        "line": 34,
+        "name": "Unsupported / special characters in the title – emoji",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1512600
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 5924315299
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 27,
+            "name": "I create a post whose title contains \"emoji\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:22"
+            },
+            "embeddings": [
+              {
+                "data": "UE9TVCAvcG9zdHMg4oaSIDIwMSBpbiA1OTI0IG1zClJlc3BvbnNlOiB7CiAgInRpdGxlIjogIlJlbGVhc2Ug8J+agPCflKUg4pyFIOKAlCBkb25lIPCfkY3wn4+9IiwKICAiYm9keSI6ICJCb3VuZGFyeSAmIGludmFsaWQgZGF0YSBjaGVja3MiLAogICJ1c2VySWQiOiAxLAogICJpZCI6IDEwMQp9",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 282100
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "the API should not fail with a server error",
+            "match": {
+              "location": "src\\steps\\api.steps.js:45"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 290700
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "the response status should be one of \"201, 400, 422\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:40"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 244699
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 30,
+            "name": "if the post was accepted the title should be returned exactly as sent",
+            "match": {
+              "location": "src\\steps\\api.steps.js:62"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 721499
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@posts",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "jsonplaceholder-–-post-/posts-boundary-and-invalid-data-handling;unsupported-/-special-characters-in-the-title-–-multi-language-unicode",
+        "keyword": "Scenario Outline",
+        "line": 35,
+        "name": "Unsupported / special characters in the title – multi-language unicode",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1369599
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 5951710600
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 27,
+            "name": "I create a post whose title contains \"multi-language unicode\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:22"
+            },
+            "embeddings": [
+              {
+                "data": "UE9TVCAvcG9zdHMg4oaSIDIwMSBpbiA1OTUxIG1zClJlc3BvbnNlOiB7CiAgInRpdGxlIjogIuCkqOCkruCkuOCljeCkpOClhyDkvaDlpb0g2YXYsdit2KjYpyDXqdec15XXnSDQn9GA0LjQstC10YIiLAogICJib2R5IjogIkJvdW5kYXJ5ICYgaW52YWxpZCBkYXRhIGNoZWNrcyIsCiAgInVzZXJJZCI6IDEsCiAgImlkIjogMTAxCn0=",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 343300
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "the API should not fail with a server error",
+            "match": {
+              "location": "src\\steps\\api.steps.js:45"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 237400
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "the response status should be one of \"201, 400, 422\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:40"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 191300
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 30,
+            "name": "if the post was accepted the title should be returned exactly as sent",
+            "match": {
+              "location": "src\\steps\\api.steps.js:62"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1149199
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@posts",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "jsonplaceholder-–-post-/posts-boundary-and-invalid-data-handling;unsupported-/-special-characters-in-the-title-–-sql-injection",
+        "keyword": "Scenario Outline",
+        "line": 36,
+        "name": "Unsupported / special characters in the title – SQL injection",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 781800
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 736583900
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 27,
+            "name": "I create a post whose title contains \"SQL injection\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:22"
+            },
+            "embeddings": [
+              {
+                "data": "UE9TVCAvcG9zdHMg4oaSIDIwMSBpbiA3MzYgbXMKUmVzcG9uc2U6IHsKICAidGl0bGUiOiAiUm9iZXJ0Jyk7IERST1AgVEFCTEUgcG9zdHM7LS0iLAogICJib2R5IjogIkJvdW5kYXJ5ICYgaW52YWxpZCBkYXRhIGNoZWNrcyIsCiAgInVzZXJJZCI6IDEsCiAgImlkIjogMTAxCn0=",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 259900
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "the API should not fail with a server error",
+            "match": {
+              "location": "src\\steps\\api.steps.js:45"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 233200
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "the response status should be one of \"201, 400, 422\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:40"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 662299
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 30,
+            "name": "if the post was accepted the title should be returned exactly as sent",
+            "match": {
+              "location": "src\\steps\\api.steps.js:62"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 770800
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@posts",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "jsonplaceholder-–-post-/posts-boundary-and-invalid-data-handling;unsupported-/-special-characters-in-the-title-–-html/script-injection",
+        "keyword": "Scenario Outline",
+        "line": 37,
+        "name": "Unsupported / special characters in the title – HTML/script injection",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 885700
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 589060299
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 27,
+            "name": "I create a post whose title contains \"HTML/script injection\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:22"
+            },
+            "embeddings": [
+              {
+                "data": "UE9TVCAvcG9zdHMg4oaSIDIwMSBpbiA1ODggbXMKUmVzcG9uc2U6IHsKICAidGl0bGUiOiAiPHNjcmlwdD5hbGVydChcInhzc1wiKTwvc2NyaXB0PjxpbWcgc3JjPXggb25lcnJvcj1hbGVydCgxKT4iLAogICJib2R5IjogIkJvdW5kYXJ5ICYgaW52YWxpZCBkYXRhIGNoZWNrcyIsCiAgInVzZXJJZCI6IDEsCiAgImlkIjogMTAxCn0=",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 352499
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "the API should not fail with a server error",
+            "match": {
+              "location": "src\\steps\\api.steps.js:45"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 224699
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "the response status should be one of \"201, 400, 422\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:40"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 189399
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 30,
+            "name": "if the post was accepted the title should be returned exactly as sent",
+            "match": {
+              "location": "src\\steps\\api.steps.js:62"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 732599
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@posts",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "jsonplaceholder-–-post-/posts-boundary-and-invalid-data-handling;unsupported-/-special-characters-in-the-title-–-quotes-and-backslashes",
+        "keyword": "Scenario Outline",
+        "line": 38,
+        "name": "Unsupported / special characters in the title – quotes and backslashes",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 866399
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 484646100
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 27,
+            "name": "I create a post whose title contains \"quotes and backslashes\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:22"
+            },
+            "embeddings": [
+              {
+                "data": "UE9TVCAvcG9zdHMg4oaSIDIwMSBpbiA0ODQgbXMKUmVzcG9uc2U6IHsKICAidGl0bGUiOiAiSGUgc2FpZCBcImhpXCIgXFwgYW5kICdieWUnIFxcbiBub3QgYSBuZXdsaW5lIiwKICAiYm9keSI6ICJCb3VuZGFyeSAmIGludmFsaWQgZGF0YSBjaGVja3MiLAogICJ1c2VySWQiOiAxLAogICJpZCI6IDEwMQp9",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 281599
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "the API should not fail with a server error",
+            "match": {
+              "location": "src\\steps\\api.steps.js:45"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 233599
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "the response status should be one of \"201, 400, 422\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:40"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 254000
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 30,
+            "name": "if the post was accepted the title should be returned exactly as sent",
+            "match": {
+              "location": "src\\steps\\api.steps.js:62"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1191000
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@posts",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "jsonplaceholder-–-post-/posts-boundary-and-invalid-data-handling;unsupported-/-special-characters-in-the-title-–-control-characters",
+        "keyword": "Scenario Outline",
+        "line": 39,
+        "name": "Unsupported / special characters in the title – control characters",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 673499
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 5485831500
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 27,
+            "name": "I create a post whose title contains \"control characters\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:22"
+            },
+            "embeddings": [
+              {
+                "data": "UE9TVCAvcG9zdHMg4oaSIDIwMSBpbiA1NDg2IG1zClJlc3BvbnNlOiB7CiAgInRpdGxlIjogInRhYlx0aGVyZVxubmV3bGluZVxycmV0dXJuXHUwMDA3YmVsbCIsCiAgImJvZHkiOiAiQm91bmRhcnkgJiBpbnZhbGlkIGRhdGEgY2hlY2tzIiwKICAidXNlcklkIjogMSwKICAiaWQiOiAxMDEKfQ==",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 292199
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "the API should not fail with a server error",
+            "match": {
+              "location": "src\\steps\\api.steps.js:45"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 217300
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "the response status should be one of \"201, 400, 422\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:40"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 662399
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 30,
+            "name": "if the post was accepted the title should be returned exactly as sent",
+            "match": {
+              "location": "src\\steps\\api.steps.js:62"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 653599
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@posts",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "jsonplaceholder-–-post-/posts-boundary-and-invalid-data-handling;unsupported-/-special-characters-in-the-title-–-null-byte",
+        "keyword": "Scenario Outline",
+        "line": 40,
+        "name": "Unsupported / special characters in the title – null byte",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 524700
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 669568800
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 27,
+            "name": "I create a post whose title contains \"null byte\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:22"
+            },
+            "embeddings": [
+              {
+                "data": "UE9TVCAvcG9zdHMg4oaSIDIwMSBpbiA2NjkgbXMKUmVzcG9uc2U6IHsKICAidGl0bGUiOiAiYmVmb3JlXHUwMDAwYWZ0ZXIiLAogICJib2R5IjogIkJvdW5kYXJ5ICYgaW52YWxpZCBkYXRhIGNoZWNrcyIsCiAgInVzZXJJZCI6IDEsCiAgImlkIjogMTAxCn0=",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 237300
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "the API should not fail with a server error",
+            "match": {
+              "location": "src\\steps\\api.steps.js:45"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 684700
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "the response status should be one of \"201, 400, 422\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:40"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 289399
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 30,
+            "name": "if the post was accepted the title should be returned exactly as sent",
+            "match": {
+              "location": "src\\steps\\api.steps.js:62"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 785700
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@posts",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "jsonplaceholder-–-post-/posts-boundary-and-invalid-data-handling;unsupported-/-special-characters-in-the-title-–-zero-width-and-rtl-marks",
+        "keyword": "Scenario Outline",
+        "line": 41,
+        "name": "Unsupported / special characters in the title – zero-width and RTL marks",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 687200
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 5595045300
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 27,
+            "name": "I create a post whose title contains \"zero-width and RTL marks\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:22"
+            },
+            "embeddings": [
+              {
+                "data": "UE9TVCAvcG9zdHMg4oaSIDIwMSBpbiA1NTk0IG1zClJlc3BvbnNlOiB7CiAgInRpdGxlIjogImHigIti4oCPY++7vyIsCiAgImJvZHkiOiAiQm91bmRhcnkgJiBpbnZhbGlkIGRhdGEgY2hlY2tzIiwKICAidXNlcklkIjogMSwKICAiaWQiOiAxMDEKfQ==",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 259599
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "the API should not fail with a server error",
+            "match": {
+              "location": "src\\steps\\api.steps.js:45"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 187299
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "the response status should be one of \"201, 400, 422\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:40"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 166899
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 30,
+            "name": "if the post was accepted the title should be returned exactly as sent",
+            "match": {
+              "location": "src\\steps\\api.steps.js:62"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 648099
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@posts",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "jsonplaceholder-–-post-/posts-boundary-and-invalid-data-handling;unsupported-/-special-characters-in-the-title-–-json-breaking-characters",
+        "keyword": "Scenario Outline",
+        "line": 42,
+        "name": "Unsupported / special characters in the title – JSON-breaking characters",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 506800
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 490177900
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 27,
+            "name": "I create a post whose title contains \"JSON-breaking characters\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:22"
+            },
+            "embeddings": [
+              {
+                "data": "UE9TVCAvcG9zdHMg4oaSIDIwMSBpbiA0OTAgbXMKUmVzcG9uc2U6IHsKICAidGl0bGUiOiAie1wibmVzdGVkXCI6XCJqc29uXCJ9XX0iLAogICJib2R5IjogIkJvdW5kYXJ5ICYgaW52YWxpZCBkYXRhIGNoZWNrcyIsCiAgInVzZXJJZCI6IDEsCiAgImlkIjogMTAxCn0=",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 317100
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "the API should not fail with a server error",
+            "match": {
+              "location": "src\\steps\\api.steps.js:45"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 210099
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "the response status should be one of \"201, 400, 422\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:40"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 184800
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 30,
+            "name": "if the post was accepted the title should be returned exactly as sent",
+            "match": {
+              "location": "src\\steps\\api.steps.js:62"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 905899
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@posts",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "jsonplaceholder-–-post-/posts-boundary-and-invalid-data-handling;invalid-payload-is-rejected-–-missing-userid",
+        "keyword": "Scenario Outline",
+        "line": 55,
+        "name": "Invalid payload is rejected – missing userId",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 581400
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 497238000
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 49,
+            "name": "I create a post with an invalid payload \"missing userId\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:27"
+            },
+            "embeddings": [
+              {
+                "data": "UE9TVCAvcG9zdHMg4oaSIDIwMSBpbiA0OTcgbXMKUmVzcG9uc2U6IHsKICAidGl0bGUiOiAiU3RyZWFtaHViIFFBIGFzc2Vzc21lbnQiLAogICJib2R5IjogIkJvdW5kYXJ5ICYgaW52YWxpZCBkYXRhIGNoZWNrcyIsCiAgImlkIjogMTAxCn0=",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 260900
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 50,
+            "name": "the API should not fail with a server error",
+            "match": {
+              "location": "src\\steps\\api.steps.js:45"
+            }
+          },
+          {
+            "result": {
+              "status": "failed",
+              "duration": 1309000,
+              "error_message": "Error: expected 4xx but API returned 201 with body {\n  \"title\": \"Streamhub QA assessment\",\n  \"body\": \"Boundary & invalid data checks\",\n  \"id\": 101\n}\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m400\u001b[39m\nReceived:    \u001b[31m201\u001b[39m\n    at captureRawStack (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\node_modules\\playwright-core\\lib\\coreBundle.js:8588:17)\n    at callMatcherAsStep (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\node_modules\\playwright\\lib\\matchers\\expect.js:13310:57)\n    at Object.toBeGreaterThanOrEqual (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\node_modules\\playwright\\lib\\matchers\\expect.js:13302:23)\n    at CustomWorld.<anonymous> (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\src\\steps\\api.steps.js:73:93)"
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 51,
+            "name": "the API should reject the request with a 4xx client error and an error message",
+            "match": {
+              "location": "src\\steps\\api.steps.js:71"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 770900
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@posts",
+            "line": 1
+          },
+          {
+            "name": "@validation",
+            "line": 47
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "jsonplaceholder-–-post-/posts-boundary-and-invalid-data-handling;invalid-payload-is-rejected-–-missing-title",
+        "keyword": "Scenario Outline",
+        "line": 56,
+        "name": "Invalid payload is rejected – missing title",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 767599
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 5494325199
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 49,
+            "name": "I create a post with an invalid payload \"missing title\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:27"
+            },
+            "embeddings": [
+              {
+                "data": "UE9TVCAvcG9zdHMg4oaSIDIwMSBpbiA1NDk0IG1zClJlc3BvbnNlOiB7CiAgImJvZHkiOiAiQm91bmRhcnkgJiBpbnZhbGlkIGRhdGEgY2hlY2tzIiwKICAidXNlcklkIjogMSwKICAiaWQiOiAxMDEKfQ==",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 300000
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 50,
+            "name": "the API should not fail with a server error",
+            "match": {
+              "location": "src\\steps\\api.steps.js:45"
+            }
+          },
+          {
+            "result": {
+              "status": "failed",
+              "duration": 970999,
+              "error_message": "Error: expected 4xx but API returned 201 with body {\n  \"body\": \"Boundary & invalid data checks\",\n  \"userId\": 1,\n  \"id\": 101\n}\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m400\u001b[39m\nReceived:    \u001b[31m201\u001b[39m\n    at captureRawStack (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\node_modules\\playwright-core\\lib\\coreBundle.js:8588:17)\n    at callMatcherAsStep (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\node_modules\\playwright\\lib\\matchers\\expect.js:13310:57)\n    at Object.toBeGreaterThanOrEqual (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\node_modules\\playwright\\lib\\matchers\\expect.js:13302:23)\n    at CustomWorld.<anonymous> (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\src\\steps\\api.steps.js:73:93)"
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 51,
+            "name": "the API should reject the request with a 4xx client error and an error message",
+            "match": {
+              "location": "src\\steps\\api.steps.js:71"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 893300
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@posts",
+            "line": 1
+          },
+          {
+            "name": "@validation",
+            "line": 47
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "jsonplaceholder-–-post-/posts-boundary-and-invalid-data-handling;invalid-payload-is-rejected-–-missing-body",
+        "keyword": "Scenario Outline",
+        "line": 57,
+        "name": "Invalid payload is rejected – missing body",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 632599
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 5498969499
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 49,
+            "name": "I create a post with an invalid payload \"missing body\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:27"
+            },
+            "embeddings": [
+              {
+                "data": "UE9TVCAvcG9zdHMg4oaSIDIwMSBpbiA1NDk4IG1zClJlc3BvbnNlOiB7CiAgInRpdGxlIjogIlN0cmVhbWh1YiBRQSBhc3Nlc3NtZW50IiwKICAidXNlcklkIjogMSwKICAiaWQiOiAxMDEKfQ==",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 227700
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 50,
+            "name": "the API should not fail with a server error",
+            "match": {
+              "location": "src\\steps\\api.steps.js:45"
+            }
+          },
+          {
+            "result": {
+              "status": "failed",
+              "duration": 328000,
+              "error_message": "Error: expected 4xx but API returned 201 with body {\n  \"title\": \"Streamhub QA assessment\",\n  \"userId\": 1,\n  \"id\": 101\n}\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m400\u001b[39m\nReceived:    \u001b[31m201\u001b[39m\n    at captureRawStack (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\node_modules\\playwright-core\\lib\\coreBundle.js:8588:17)\n    at callMatcherAsStep (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\node_modules\\playwright\\lib\\matchers\\expect.js:13310:57)\n    at Object.toBeGreaterThanOrEqual (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\node_modules\\playwright\\lib\\matchers\\expect.js:13302:23)\n    at CustomWorld.<anonymous> (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\src\\steps\\api.steps.js:73:93)"
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 51,
+            "name": "the API should reject the request with a 4xx client error and an error message",
+            "match": {
+              "location": "src\\steps\\api.steps.js:71"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 652900
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@posts",
+            "line": 1
+          },
+          {
+            "name": "@validation",
+            "line": 47
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "jsonplaceholder-–-post-/posts-boundary-and-invalid-data-handling;invalid-payload-is-rejected-–-empty-object",
+        "keyword": "Scenario Outline",
+        "line": 58,
+        "name": "Invalid payload is rejected – empty object",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 554900
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 5600915000
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 49,
+            "name": "I create a post with an invalid payload \"empty object\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:27"
+            },
+            "embeddings": [
+              {
+                "data": "UE9TVCAvcG9zdHMg4oaSIDIwMSBpbiA1NjAwIG1zClJlc3BvbnNlOiB7CiAgImlkIjogMTAxCn0=",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 338900
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 50,
+            "name": "the API should not fail with a server error",
+            "match": {
+              "location": "src\\steps\\api.steps.js:45"
+            }
+          },
+          {
+            "result": {
+              "status": "failed",
+              "duration": 346100,
+              "error_message": "Error: expected 4xx but API returned 201 with body {\n  \"id\": 101\n}\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m400\u001b[39m\nReceived:    \u001b[31m201\u001b[39m\n    at captureRawStack (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\node_modules\\playwright-core\\lib\\coreBundle.js:8588:17)\n    at callMatcherAsStep (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\node_modules\\playwright\\lib\\matchers\\expect.js:13310:57)\n    at Object.toBeGreaterThanOrEqual (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\node_modules\\playwright\\lib\\matchers\\expect.js:13302:23)\n    at CustomWorld.<anonymous> (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\src\\steps\\api.steps.js:73:93)"
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 51,
+            "name": "the API should reject the request with a 4xx client error and an error message",
+            "match": {
+              "location": "src\\steps\\api.steps.js:71"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1043000
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@posts",
+            "line": 1
+          },
+          {
+            "name": "@validation",
+            "line": 47
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "jsonplaceholder-–-post-/posts-boundary-and-invalid-data-handling;invalid-payload-is-rejected-–-userid-as-a-string",
+        "keyword": "Scenario Outline",
+        "line": 59,
+        "name": "Invalid payload is rejected – userId as a string",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 524499
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 460139100
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 49,
+            "name": "I create a post with an invalid payload \"userId as a string\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:27"
+            },
+            "embeddings": [
+              {
+                "data": "UE9TVCAvcG9zdHMg4oaSIDIwMSBpbiA0NjAgbXMKUmVzcG9uc2U6IHsKICAidGl0bGUiOiAiU3RyZWFtaHViIFFBIGFzc2Vzc21lbnQiLAogICJib2R5IjogIkJvdW5kYXJ5ICYgaW52YWxpZCBkYXRhIGNoZWNrcyIsCiAgInVzZXJJZCI6ICJhYmMiLAogICJpZCI6IDEwMQp9",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 235399
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 50,
+            "name": "the API should not fail with a server error",
+            "match": {
+              "location": "src\\steps\\api.steps.js:45"
+            }
+          },
+          {
+            "result": {
+              "status": "failed",
+              "duration": 371299,
+              "error_message": "Error: expected 4xx but API returned 201 with body {\n  \"title\": \"Streamhub QA assessment\",\n  \"body\": \"Boundary & invalid data checks\",\n  \"userId\": \"abc\",\n  \"id\": 101\n}\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m400\u001b[39m\nReceived:    \u001b[31m201\u001b[39m\n    at captureRawStack (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\node_modules\\playwright-core\\lib\\coreBundle.js:8588:17)\n    at callMatcherAsStep (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\node_modules\\playwright\\lib\\matchers\\expect.js:13310:57)\n    at Object.toBeGreaterThanOrEqual (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\node_modules\\playwright\\lib\\matchers\\expect.js:13302:23)\n    at CustomWorld.<anonymous> (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\src\\steps\\api.steps.js:73:93)"
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 51,
+            "name": "the API should reject the request with a 4xx client error and an error message",
+            "match": {
+              "location": "src\\steps\\api.steps.js:71"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1024799
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@posts",
+            "line": 1
+          },
+          {
+            "name": "@validation",
+            "line": 47
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "jsonplaceholder-–-post-/posts-boundary-and-invalid-data-handling;invalid-payload-is-rejected-–-negative-userid",
+        "keyword": "Scenario Outline",
+        "line": 60,
+        "name": "Invalid payload is rejected – negative userId",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 845900
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 5919045100
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 49,
+            "name": "I create a post with an invalid payload \"negative userId\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:27"
+            },
+            "embeddings": [
+              {
+                "data": "UE9TVCAvcG9zdHMg4oaSIDIwMSBpbiA1OTE5IG1zClJlc3BvbnNlOiB7CiAgInRpdGxlIjogIlN0cmVhbWh1YiBRQSBhc3Nlc3NtZW50IiwKICAiYm9keSI6ICJCb3VuZGFyeSAmIGludmFsaWQgZGF0YSBjaGVja3MiLAogICJ1c2VySWQiOiAtMSwKICAiaWQiOiAxMDEKfQ==",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 229899
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 50,
+            "name": "the API should not fail with a server error",
+            "match": {
+              "location": "src\\steps\\api.steps.js:45"
+            }
+          },
+          {
+            "result": {
+              "status": "failed",
+              "duration": 872799,
+              "error_message": "Error: expected 4xx but API returned 201 with body {\n  \"title\": \"Streamhub QA assessment\",\n  \"body\": \"Boundary & invalid data checks\",\n  \"userId\": -1,\n  \"id\": 101\n}\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m400\u001b[39m\nReceived:    \u001b[31m201\u001b[39m\n    at captureRawStack (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\node_modules\\playwright-core\\lib\\coreBundle.js:8588:17)\n    at callMatcherAsStep (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\node_modules\\playwright\\lib\\matchers\\expect.js:13310:57)\n    at Object.toBeGreaterThanOrEqual (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\node_modules\\playwright\\lib\\matchers\\expect.js:13302:23)\n    at CustomWorld.<anonymous> (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\src\\steps\\api.steps.js:73:93)"
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 51,
+            "name": "the API should reject the request with a 4xx client error and an error message",
+            "match": {
+              "location": "src\\steps\\api.steps.js:71"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 811500
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@posts",
+            "line": 1
+          },
+          {
+            "name": "@validation",
+            "line": 47
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "jsonplaceholder-–-post-/posts-boundary-and-invalid-data-handling;invalid-payload-is-rejected-–-null-title",
+        "keyword": "Scenario Outline",
+        "line": 61,
+        "name": "Invalid payload is rejected – null title",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 507499
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 480276999
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 49,
+            "name": "I create a post with an invalid payload \"null title\"",
+            "match": {
+              "location": "src\\steps\\api.steps.js:27"
+            },
+            "embeddings": [
+              {
+                "data": "UE9TVCAvcG9zdHMg4oaSIDIwMSBpbiA0NzkgbXMKUmVzcG9uc2U6IHsKICAidGl0bGUiOiBudWxsLAogICJib2R5IjogIkJvdW5kYXJ5ICYgaW52YWxpZCBkYXRhIGNoZWNrcyIsCiAgInVzZXJJZCI6IDEsCiAgImlkIjogMTAxCn0=",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 256500
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 50,
+            "name": "the API should not fail with a server error",
+            "match": {
+              "location": "src\\steps\\api.steps.js:45"
+            }
+          },
+          {
+            "result": {
+              "status": "failed",
+              "duration": 291499,
+              "error_message": "Error: expected 4xx but API returned 201 with body {\n  \"title\": null,\n  \"body\": \"Boundary & invalid data checks\",\n  \"userId\": 1,\n  \"id\": 101\n}\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m400\u001b[39m\nReceived:    \u001b[31m201\u001b[39m\n    at captureRawStack (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\node_modules\\playwright-core\\lib\\coreBundle.js:8588:17)\n    at callMatcherAsStep (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\node_modules\\playwright\\lib\\matchers\\expect.js:13310:57)\n    at Object.toBeGreaterThanOrEqual (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\node_modules\\playwright\\lib\\matchers\\expect.js:13302:23)\n    at CustomWorld.<anonymous> (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\src\\steps\\api.steps.js:73:93)"
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 51,
+            "name": "the API should reject the request with a 4xx client error and an error message",
+            "match": {
+              "location": "src\\steps\\api.steps.js:71"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 810199
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@posts",
+            "line": 1
+          },
+          {
+            "name": "@validation",
+            "line": 47
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "jsonplaceholder-–-post-/posts-boundary-and-invalid-data-handling;malformed-json-body-is-rejected-with-a-client-error",
+        "keyword": "Scenario",
+        "line": 63,
+        "name": "Malformed JSON body is rejected with a client error",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 605700
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 5924751999
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 64,
+            "name": "I send a POST request with a malformed JSON body",
+            "match": {
+              "location": "src\\steps\\api.steps.js:32"
+            },
+            "embeddings": [
+              {
+                "data": "UE9TVCAvcG9zdHMg4oaSIDUwMCBpbiA1OTI0IG1zClJlc3BvbnNlOiBTeW50YXhFcnJvcjogRXhwZWN0ZWQgZG91YmxlLXF1b3RlZCBwcm9wZXJ0eSBuYW1lIGluIEpTT04gYXQgcG9zaXRpb24gMzIgKGxpbmUgMSBjb2x1bW4gMzMpCiAgICBhdCBKU09OLnBhcnNlICg8YW5vbnltb3VzPikKICAgIGF0IHBhcnNlICgvYXBwL25vZGVfbW9kdWxlcy9ib2R5LXBhcnNlci9saWIvdHlwZXMvanNvbi5qczo4OToxOSkKICAgIGF0IC9hcHAvbm9kZV9tb2R1bGVzL2JvZHktcGFyc2VyL2xpYi9yZWFkLmpzOjEyMToxOAogICAgYXQgaW52b2tlQ2FsbGJhY2sgKC9hcHAvbm9kZV9tb2R1bGVzL2JvZHktcGFyc2VyL25vZGVfbW9kdWxlcy9yYXctYm9keS9pbmRleC5qczoyMjQ6MTYpCiAgICBhdCBkb25lICgvYXBwL25vZGVfbW9kdWxlcy9ib2R5LXBhcnNlci9ub2RlX21vZHVsZXMvcmF34oCmICg3MTMgY2hhcnMp",
+                "mime_type": "text/plain"
+              }
+            ]
+          },
+          {
+            "result": {
+              "status": "failed",
+              "duration": 372099,
+              "error_message": "Error: server-side failure (5xx)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m500\u001b[39m\nReceived:   \u001b[31m500\u001b[39m\n    at captureRawStack (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\node_modules\\playwright-core\\lib\\coreBundle.js:8588:17)\n    at callMatcherAsStep (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\node_modules\\playwright\\lib\\matchers\\expect.js:13310:57)\n    at Object.toBeLessThan (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\node_modules\\playwright\\lib\\matchers\\expect.js:13302:23)\n    at CustomWorld.<anonymous> (C:\\Users\\KushalSonar\\Documents\\streamhub-qa-assessment\\src\\steps\\api.steps.js:46:60)"
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 65,
+            "name": "the API should not fail with a server error",
+            "match": {
+              "location": "src\\steps\\api.steps.js:45"
+            }
+          },
+          {
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 66,
+            "name": "the API should reject the request with a 4xx client error and an error message",
+            "match": {
+              "location": "src\\steps\\api.steps.js:71"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 648399
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@posts",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "jsonplaceholder-–-post-/posts-boundary-and-invalid-data-handling",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "JSONPlaceholder – POST /posts boundary and invalid data handling",
+    "tags": [
+      {
+        "name": "@api",
+        "line": 1
+      },
+      {
+        "name": "@posts",
+        "line": 1
+      }
+    ],
+    "uri": "features\\api\\create-post.feature"
+  }
+]

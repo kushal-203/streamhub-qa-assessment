@@ -1,0 +1,212 @@
+{
+  "engine": "heuristic",
+  "generatedAt": "2026-10-06T06:57:03.474Z",
+  "results": [
+    {
+      "name": "calculateButton",
+      "brokenSelector": "#calc-btn",
+      "why": "Hard-coded id; the button only has visible text",
+      "detection": {
+        "broken": true,
+        "count": 0,
+        "reason": "no element matched"
+      },
+      "engine": "heuristic",
+      "proposal": {
+        "locator": {
+          "strategy": "role",
+          "role": "button",
+          "name": "Calculate EMI"
+        },
+        "confidence": 0.99,
+        "reason": "Best token overlap with intent (calculate, emi), role=button"
+      },
+      "validation": [
+        {
+          "check": "resolves to exactly one element",
+          "pass": true,
+          "detail": "count=1"
+        },
+        {
+          "check": "is visible",
+          "pass": true
+        },
+        {
+          "check": "has role \"button\"",
+          "pass": true
+        },
+        {
+          "check": "click → EMI results appear",
+          "pass": true
+        }
+      ],
+      "accepted": true,
+      "suggestedCode": "page.getByRole('button', { name: 'Calculate EMI', exact: true })",
+      "status": "HEALED (pending human review)"
+    },
+    {
+      "name": "loanAmountInput",
+      "brokenSelector": "xpath=/html/body/div[1]/main/section[2]/form/div[1]/input[1]",
+      "why": "Absolute XPath assumed a wrapper <div> that was removed from the layout",
+      "detection": {
+        "broken": true,
+        "count": 0,
+        "reason": "no element matched"
+      },
+      "engine": "heuristic",
+      "proposal": {
+        "locator": {
+          "strategy": "role",
+          "role": "spinbutton",
+          "name": "Loan amount (₹)"
+        },
+        "confidence": 0.99,
+        "reason": "Best token overlap with intent (loan, amount), role=spinbutton"
+      },
+      "validation": [
+        {
+          "check": "resolves to exactly one element",
+          "pass": true,
+          "detail": "count=1"
+        },
+        {
+          "check": "is visible",
+          "pass": true
+        },
+        {
+          "check": "has role \"spinbutton\"",
+          "pass": true
+        },
+        {
+          "check": "fill → value is kept",
+          "pass": true
+        }
+      ],
+      "accepted": true,
+      "suggestedCode": "page.getByRole('spinbutton', { name: 'Loan amount (₹)', exact: true })",
+      "status": "HEALED (pending human review)"
+    },
+    {
+      "name": "emiResultValue",
+      "brokenSelector": ".kpis > div:nth-child(1) > span.value",
+      "why": "Depends on child position and an old class name (\"value\" is now \"kpi-value\")",
+      "detection": {
+        "broken": true,
+        "count": 0,
+        "reason": "no element matched"
+      },
+      "engine": "heuristic",
+      "proposal": {
+        "locator": {
+          "strategy": "testid",
+          "value": "result-emi"
+        },
+        "confidence": 0.8,
+        "reason": "Best token overlap with intent (monthly, emi, result), role=listitem"
+      },
+      "validation": [
+        {
+          "check": "resolves to exactly one element",
+          "pass": true,
+          "detail": "count=1"
+        },
+        {
+          "check": "is visible",
+          "pass": true
+        },
+        {
+          "check": "shows a ₹ amount",
+          "pass": true,
+          "detail": "Monthly EMI ₹33,038"
+        }
+      ],
+      "accepted": true,
+      "suggestedCode": "page.getByTestId('result-emi')",
+      "status": "HEALED (pending human review)"
+    },
+    {
+      "name": "pieChart",
+      "brokenSelector": "[data-test=\"pie\"]",
+      "why": "Uses data-test instead of data-testid, and an outdated value",
+      "detection": {
+        "broken": true,
+        "count": 0,
+        "reason": "no element matched"
+      },
+      "engine": "heuristic",
+      "proposal": {
+        "locator": {
+          "strategy": "role",
+          "role": "img",
+          "name": "EMI breakdown pie chart"
+        },
+        "confidence": 0.99,
+        "reason": "Best token overlap with intent (emi, breakdown, pie, chart), role=img"
+      },
+      "validation": [
+        {
+          "check": "resolves to exactly one element",
+          "pass": true,
+          "detail": "count=1"
+        },
+        {
+          "check": "is visible",
+          "pass": true
+        },
+        {
+          "check": "has role \"img\"",
+          "pass": true
+        },
+        {
+          "check": "chart has a rendered size",
+          "pass": true
+        }
+      ],
+      "accepted": true,
+      "suggestedCode": "page.getByRole('img', { name: 'EMI breakdown pie chart', exact: true })",
+      "status": "HEALED (pending human review)"
+    },
+    {
+      "name": "reportsNavLink",
+      "brokenSelector": "nav > a:nth-of-type(4)",
+      "why": "Positional nav selector; there are only 3 links so this matches nothing",
+      "detection": {
+        "broken": true,
+        "count": 0,
+        "reason": "no element matched"
+      },
+      "engine": "heuristic",
+      "proposal": {
+        "locator": {
+          "strategy": "role",
+          "role": "link",
+          "name": "Reports"
+        },
+        "confidence": 0.83,
+        "reason": "Best token overlap with intent (reports), role=link"
+      },
+      "validation": [
+        {
+          "check": "resolves to exactly one element",
+          "pass": true,
+          "detail": "count=1"
+        },
+        {
+          "check": "is visible",
+          "pass": true
+        },
+        {
+          "check": "has role \"link\"",
+          "pass": true
+        },
+        {
+          "check": "click → Reports page opens",
+          "pass": true
+        }
+      ],
+      "accepted": true,
+      "suggestedCode": "page.getByRole('link', { name: 'Reports', exact: true })",
+      "status": "HEALED (pending human review)"
+    }
+  ]
+}

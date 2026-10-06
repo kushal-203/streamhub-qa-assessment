@@ -1,0 +1,10 @@
+[
+  { "id": "LN-1001", "borrower": "Aarav Mehta",   "type": "Home",     "principal": 2500000, "annualRate": 10.0, "tenureYears": 10, "status": "Active" },
+  { "id": "LN-1002", "borrower": "Diya Sharma",   "type": "Home",     "principal": 5000000, "annualRate": 7.5,  "tenureYears": 15, "status": "Active" },
+  { "id": "LN-1003", "borrower": "Kabir Rao",     "type": "Personal", "principal": 1000000, "annualRate": 12.0, "tenureYears": 5,  "status": "Active" },
+  { "id": "LN-1004", "borrower": "Isha Nair",     "type": "Car",      "principal": 800000,  "annualRate": 9.25, "tenureYears": 7,  "status": "Active" },
+  { "id": "LN-1005", "borrower": "Rohan Gupta",   "type": "Personal", "principal": 300000,  "annualRate": 14.0, "tenureYears": 3,  "status": "Closed" },
+  { "id": "LN-1006", "borrower": "Meera Iyer",    "type": "Car",      "principal": 650000,  "annualRate": 8.75, "tenureYears": 5,  "status": "Overdue" },
+  { "id": "LN-1007", "borrower": "Vihaan Joshi",  "type": "Home",     "principal": 3500000, "annualRate": 8.4,  "tenureYears": 20, "status": "Active" },
+  { "id": "LN-1008", "borrower": "Ananya Kapoor", "type": "Personal", "principal": 450000,  "annualRate": 13.5, "tenureYears": 4,  "status": "Overdue" }
+]

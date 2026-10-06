@@ -1,0 +1,27 @@
+=== results/api/cucumber-report.json ===  (REAL https://jsonplaceholder.typicode.com)
+
+Feature: JSONPlaceholder – POST /posts boundary and invalid data handling
+  PASS  Baseline – a valid post is created
+  PASS  Excessively long title (256 characters) does not cause a server failure
+  PASS  Excessively long title (10000 characters) does not cause a server failure
+  PASS  Excessively long title (100000 characters) does not cause a server failure
+  PASS  Excessively long title (1000000 characters) does not cause a server failure
+  PASS  Unsupported / special characters in the title – emoji
+  PASS  Unsupported / special characters in the title – multi-language unicode
+  PASS  Unsupported / special characters in the title – SQL injection
+  PASS  Unsupported / special characters in the title – HTML/script injection
+  PASS  Unsupported / special characters in the title – quotes and backslashes
+  PASS  Unsupported / special characters in the title – control characters
+  PASS  Unsupported / special characters in the title – null byte
+  PASS  Unsupported / special characters in the title – zero-width and RTL marks
+  PASS  Unsupported / special characters in the title – JSON-breaking characters
+  FAIL  Invalid payload is rejected – missing userId        -> expected 4xx, API returned 201
+  FAIL  Invalid payload is rejected – missing title         -> expected 4xx, API returned 201
+  FAIL  Invalid payload is rejected – missing body          -> expected 4xx, API returned 201
+  FAIL  Invalid payload is rejected – empty object          -> expected 4xx, API returned 201
+  FAIL  Invalid payload is rejected – userId as a string    -> expected 4xx, API returned 201
+  FAIL  Invalid payload is rejected – negative userId       -> expected 4xx, API returned 201
+  FAIL  Invalid payload is rejected – null title            -> expected 4xx, API returned 201
+  FAIL  Malformed JSON body is rejected with a client error -> server-side failure: API returned 500
+
+Total: 22 scenarios, 14 passed, 8 failed   (run time 1m 5.9s)

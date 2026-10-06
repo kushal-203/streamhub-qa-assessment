@@ -1,0 +1,9 @@
+
+=== results/broken/cucumber-report.json ===
+
+Feature: Brittle locators (self-healing exercise)
+  FAIL  Calculate using brittle locators
+        ↳ When I navigate with the legacy Reports link
+          locator.click: Timeout 3000ms exceeded.
+
+Total: 1 scenarios, 0 passed, 1 failed

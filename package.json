@@ -1,0 +1,27 @@
+{
+  "name": "streamhub-qa-assessment",
+  "version": "1.0.0",
+  "description": "Streamhub Fullstack + QA Automation Assessment (Section A): LoanLens web app, Playwright + Cucumber UI/API framework, SQL scenarios, AI self-healing POC",
+  "private": true,
+  "scripts": {
+    "start": "node app/server.js",
+    "test": "npm run test:ui && npm run test:api",
+    "test:ui": "cucumber-js --profile ui",
+    "test:api": "cucumber-js --profile api",
+    "test:api:mock": "cross-env TEST_ENV=mock cucumber-js --profile api",
+    "test:broken": "cucumber-js --profile broken",
+    "heal": "node self-healing/heal.js",
+    "sql": "node --no-warnings sql/run-sql.js",
+    "report:summary": "node scripts/summarise-results.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^13.3.0",
+    "@playwright/test": "^1.63.0",
+    "cross-env": "^10.1.0",
+    "dotenv": "^18.0.5",
+    "playwright": "^1.63.0"
+  }
+}

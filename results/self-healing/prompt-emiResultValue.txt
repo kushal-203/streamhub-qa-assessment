@@ -1,0 +1,116 @@
+You are a senior QA automation engineer repairing a broken Playwright locator.
+
+## Broken locator
+- Selector: .kpis > div:nth-child(1) > span.value
+- What it is for (intent): Tile that displays the calculated monthly EMI result
+- Expected ARIA role: none (non-interactive display element)
+- Why it probably broke: Depends on child position and an old class name ("value" is now "kpi-value")
+
+## Current page – ARIA snapshot
+- banner:
+  - text: LoanLens
+  - navigation "Main":
+    - link "Dashboard":
+      - /url: "#/dashboard"
+    - link "EMI Calculator":
+      - /url: "#/calculator"
+    - link "Reports":
+      - /url: "#/reports"
+- main:
+  - region "EMI Calculator":
+    - heading "EMI Calculator" [level=1]
+    - text: Loan amount (₹)
+    - spinbutton "Loan amount (₹)": "2500000"
+    - slider "Loan amount slider": "2500000"
+    - text: Interest rate (% p.a.)
+    - spinbutton "Interest rate (% p.a.)": "10"
+    - slider "Interest rate slider": "10"
+    - text: Loan tenure (years)
+    - spinbutton "Loan tenure (years)": "10"
+    - slider "Loan tenure slider": "10"
+    - button "Calculate EMI"
+    - list "EMI results":
+      - listitem: Monthly EMI ₹33,038
+      - listitem: Total interest payable ₹14,64,522
+      - listitem: Total payment ₹39,64,522
+    - heading "Breakdown of total payment" [level=2]
+    - img "EMI breakdown pie chart"
+    - text: "Principal loan amount: ₹25,00,000 (63.1%) Total interest: ₹14,64,522 (36.9%)"
+    - heading "Yearly repayment schedule" [level=2]
+    - img "Yearly repayment bar chart": 1 2 3 4 5 6 7 8 9 10
+    - text: "Principal: per year Interest: per year"
+    - heading "Amortisation table" [level=2]
+    - table "Yearly amortisation schedule":
+      - rowgroup:
+        - row "Year Principal paid Interest paid Closing balance":
+          - columnheader "Year"
+          - columnheader "Principal paid"
+          - columnheader "Interest paid"
+          - columnheader "Closing balance"
+      - rowgroup:
+        - row "1 ₹1,53,355 ₹2,43,098 ₹23,46,645":
+          - cell "1"
+          - cell "₹1,53,355"
+          - cell "₹2,43,098"
+          - cell "₹23,46,645"
+        - row "2 ₹1,69,413 ₹2,27,039 ₹21,77,233":
+          - cell "2"
+          - cell "₹1,69,413"
+          - cell "₹2,27,039"
+          - cell "₹21,77,233"
+        - row "3 ₹1,87,153 ₹2,09,300 ₹19,90,080":
+          - cell "3"
+          - cell "₹1,87,153"
+          - cell "₹2,09,300"
+          - cell "₹19,90,080"
+        - row "4 ₹2,06,750 ₹1,89,702 ₹17,83,330":
+          - cell "4"
+          - cell "₹2,06,750"
+          - cell "₹1,89,702"
+          - cell "₹17,83,330"
+        - row "5 ₹2,28,399 ₹1,68,053 ₹15,54,931":
+          - cell "5"
+          - cell "₹2,28,399"
+          - cell "₹1,68,053"
+          - cell "₹15,54,931"
+        - row "6 ₹2,52,316 ₹1,44,137 ₹13,02,615":
+          - cell "6"
+          - cell "₹2,52,316"
+          - cell "₹1,44,137"
+          - cell "₹13,02,615"
+        - row "7 ₹2,78,736 ₹1,17,716 ₹10,23,879":
+          - cell "7"
+          - cell "₹2,78,736"
+          - cell "₹1,17,716"
+          - cell "₹10,23,879"
+        - row "8 ₹3,07,924 ₹88,528 ₹7,15,955":
+          - cell "8"
+          - cell "₹3,07,924"
+          - cell "₹88,528"
+          - cell "₹7,15,955"
+        - row "9 ₹3,40,167 ₹56,285 ₹3,75,787":
+          - cell "9"
+          - cell "₹3,40,167"
+          - cell "₹56,285"
+          - cell "₹3,75,787"
+        - row "10 ₹3,75,787 ₹20,665 ₹0":
+          - cell "10"
+          - cell "₹3,75,787"
+          - cell "₹20,665"
+          - cell "₹0"
+
+## Current page – visible candidate elements (JSON)
+[{"idx":0,"tag":"a","role":"link","name":"Dashboard","testId":null,"id":null,"classes":""},{"idx":1,"tag":"a","role":"link","name":"EMI Calculator","testId":null,"id":null,"classes":""},{"idx":2,"tag":"a","role":"link","name":"Reports","testId":null,"id":null,"classes":""},{"idx":3,"tag":"h1","role":"heading","name":"EMI Calculator","testId":null,"id":"calc-title","classes":""},{"idx":4,"tag":"input","role":"spinbutton","name":"Loan amount (₹)","testId":null,"id":"loan-amount","classes":""},{"idx":5,"tag":"input","role":"slider","name":"Loan amount slider","testId":null,"id":null,"classes":""},{"idx":6,"tag":"input","role":"spinbutton","name":"Interest rate (% p.a.)","testId":null,"id":"interest-rate","classes":""},{"idx":7,"tag":"input","role":"slider","name":"Interest rate slider","testId":null,"id":null,"classes":""},{"idx":8,"tag":"input","role":"spinbutton","name":"Loan tenure (years)","testId":null,"id":"loan-tenure","classes":""},{"idx":9,"tag":"input","role":"slider","name":"Loan tenure slider","testId":null,"id":null,"classes":""},{"idx":10,"tag":"button","role":"button","name":"Calculate EMI","testId":null,"id":null,"classes":""},{"idx":11,"tag":"div","role":"list","name":"EMI results","testId":null,"id":null,"classes":"kpis"},{"idx":12,"tag":"div","role":"listitem","name":"Monthly EMI ₹33,038","testId":"result-emi","id":null,"classes":"kpi"},{"idx":13,"tag":"div","role":"listitem","name":"Total interest payable ₹14,64,522","testId":"result-total-interest","id":null,"classes":"kpi"},{"idx":14,"tag":"div","role":"listitem","name":"Total payment ₹39,64,522","testId":"result-total-payment","id":null,"classes":"kpi"},{"idx":15,"tag":"h2","role":"heading","name":"Breakdown of total payment","testId":null,"id":null,"classes":""},{"idx":16,"tag":"svg","role":"img","name":"EMI breakdown pie chart","testId":"pie-chart","id":null,"classes":null},{"idx":17,"tag":"path","role":null,"name":"Principal loan amount: ₹25,00,000 (63.1%)","testId":"pie-slice","id":null,"classes":null},{"idx":18,"tag":"path","role":null,"name":"Total interest: ₹14,64,522 (36.9%)","testId":"pie-slice","id":null,"classes":null},{"idx":19,"tag":"span","role":null,"name":"Principal loan amount: ₹25,00,000 (63.1%)","testId":"legend-item","id":null,"classes":""},{"idx":20,"tag":"span","role":null,"name":"Total interest: ₹14,64,522 (36.9%)","testId":"legend-item","id":null,"classes":""},{"idx":21,"tag":"h2","role":"heading","name":"Yearly repayment schedule","testId":null,"id":null,"classes":""},{"idx":22,"tag":"svg","role":"img","name":"Yearly repayment bar chart","testId":"schedule-bar-chart","id":null,"classes":null},{"idx":23,"tag":"g","role":null,"name":"Year 1","testId":"schedule-bar","id":null,"classes":null},{"idx":24,"tag":"g","role":null,"name":"Year 2","testId":"schedule-bar","id":null,"classes":null},{"idx":25,"tag":"g","role":null,"name":"Year 3","testId":"schedule-bar","id":null,"classes":null},{"idx":26,"tag":"g","role":null,"name":"Year 4","testId":"schedule-bar","id":null,"classes":null},{"idx":27,"tag":"g","role":null,"name":"Year 5","testId":"schedule-bar","id":null,"classes":null},{"idx":28,"tag":"g","role":null,"name":"Year 6","testId":"schedule-bar","id":null,"classes":null},{"idx":29,"tag":"g","role":null,"name":"Year 7","testId":"schedule-bar","id":null,"classes":null},{"idx":30,"tag":"g","role":null,"name":"Year 8","testId":"schedule-bar","id":null,"classes":null},{"idx":31,"tag":"g","role":null,"name":"Year 9","testId":"schedule-bar","id":null,"classes":null},{"idx":32,"tag":"g","role":null,"name":"Year 10","testId":"schedule-bar","id":null,"classes":null},{"idx":33,"tag":"span","role":null,"name":"Principal: per year","testId":"legend-item","id":null,"classes":""},{"idx":34,"tag":"span","role":null,"name":"Interest: per year","testId":"legend-item","id":null,"classes":""},{"idx":35,"tag":"h2","role":"heading","name":"Amortisation table","testId":null,"id":null,"classes":""},{"idx":36,"tag":"table","role":"table","name":"Yearly amortisation schedule","testId":null,"id":null,"classes":""}]
+
+## Rules
+1. Choose the ONE element that best matches the intent. Do not invent elements that are not listed above.
+2. Use the most resilient strategy available, in this order of preference:
+   role + accessible name  >  data-testid  >  label  >  exact visible text.
+   Never return CSS classes, ids, nth-child or XPath.
+3. The locator must match exactly one element.
+4. If nothing matches the intent, return {"locator": null, "confidence": 0, "reason": "..."}.
+
+## Answer – JSON only, no prose
+{"locator": {"strategy": "role|testid|label|text", "role": "<role if strategy=role>", "name": "<accessible name if role>", "value": "<value for testid/label/text>"},
+ "confidence": <0..1>,
+ "reason": "<one sentence>"}

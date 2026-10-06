@@ -1,0 +1,44 @@
+You are a senior QA automation engineer repairing a broken Playwright locator.
+
+## Broken locator
+- Selector: nav > a:nth-of-type(4)
+- What it is for (intent): Main navigation link that opens the Reports page
+- Expected ARIA role: link
+- Why it probably broke: Positional nav selector; there are only 3 links so this matches nothing
+
+## Current page – ARIA snapshot
+- banner:
+  - text: LoanLens
+  - navigation "Main":
+    - link "Dashboard":
+      - /url: "#/dashboard"
+    - link "EMI Calculator":
+      - /url: "#/calculator"
+    - link "Reports":
+      - /url: "#/reports"
+- main:
+  - region "Portfolio Dashboard":
+    - heading "Portfolio Dashboard" [level=1]
+    - list "Portfolio summary":
+      - listitem: Loans 8
+      - listitem: Total principal ₹1,42,00,000
+      - listitem: Monthly EMI inflow ₹1,70,357
+      - listitem: Total interest receivable ₹95,27,488
+    - heading "Principal by loan type" [level=2]
+    - img "Principal by loan type bar chart": ₹1,10,00,000 Home ₹17,50,000 Personal ₹14,50,000 Car
+
+## Current page – visible candidate elements (JSON)
+[{"idx":0,"tag":"a","role":"link","name":"Dashboard","testId":null,"id":null,"classes":""},{"idx":1,"tag":"a","role":"link","name":"EMI Calculator","testId":null,"id":null,"classes":""},{"idx":2,"tag":"a","role":"link","name":"Reports","testId":null,"id":null,"classes":""},{"idx":3,"tag":"h1","role":"heading","name":"Portfolio Dashboard","testId":null,"id":"dash-title","classes":""},{"idx":4,"tag":"div","role":"list","name":"Portfolio summary","testId":null,"id":null,"classes":"kpis"},{"idx":5,"tag":"div","role":"listitem","name":"Loans 8","testId":"kpi-loan-count","id":null,"classes":"kpi"},{"idx":6,"tag":"div","role":"listitem","name":"Total principal ₹1,42,00,000","testId":"kpi-total-principal","id":null,"classes":"kpi"},{"idx":7,"tag":"div","role":"listitem","name":"Monthly EMI inflow ₹1,70,357","testId":"kpi-monthly-emi","id":null,"classes":"kpi"},{"idx":8,"tag":"div","role":"listitem","name":"Total interest receivable ₹95,27,488","testId":"kpi-total-interest","id":null,"classes":"kpi"},{"idx":9,"tag":"h2","role":"heading","name":"Principal by loan type","testId":null,"id":null,"classes":""},{"idx":10,"tag":"svg","role":"img","name":"Principal by loan type bar chart","testId":"type-bar-chart","id":null,"classes":null},{"idx":11,"tag":"rect","role":null,"name":"","testId":"type-bar","id":null,"classes":null},{"idx":12,"tag":"rect","role":null,"name":"","testId":"type-bar","id":null,"classes":null},{"idx":13,"tag":"rect","role":null,"name":"","testId":"type-bar","id":null,"classes":null}]
+
+## Rules
+1. Choose the ONE element that best matches the intent. Do not invent elements that are not listed above.
+2. Use the most resilient strategy available, in this order of preference:
+   role + accessible name  >  data-testid  >  label  >  exact visible text.
+   Never return CSS classes, ids, nth-child or XPath.
+3. The locator must match exactly one element.
+4. If nothing matches the intent, return {"locator": null, "confidence": 0, "reason": "..."}.
+
+## Answer – JSON only, no prose
+{"locator": {"strategy": "role|testid|label|text", "role": "<role if strategy=role>", "name": "<accessible name if role>", "value": "<value for testid/label/text>"},
+ "confidence": <0..1>,
+ "reason": "<one sentence>"}
